@@ -1,27 +1,21 @@
 :root {
-  // Container
-  --container-width: 1200px;
-  --container-padding: 15px;
+	// Container
+	--container-width: 1200px;
+	--container-padding: 15px;
 
-  // Base
-  --font-main: "Poppins", sans-serif;
-  --font-accent: "Playfair Display", serif;
-  --font-size: 16px;
-  --font-weight: 400;
+	// Base
+	--font-main: "Poppins", sans-serif;
+	--font-accent: "Playfair Display", serif;
+	--font-size: 16px;
+	--font-weight: 400;
 
-  --page-bg: #fff;
-  --text-color: #000;
-  --accent: #ac182c;
+	--page-bg: #fff;
+	--text-color: #000;
+	--accent: #ac182c;
 
-  // Media
-  --tablet-size: 959px;
-  --mobileLG-size: 425px;
-  --mobileMD-size: 375px;
-  --mobileSM-size: 320px;
-  --mobileXS-size: 300px;
 }
 
 .dark {
-  --page-bg: #252526;
-  --text-color: #fff;
+	--page-bg: #252526;
+	--text-color: #fff;
 }
