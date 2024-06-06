@@ -44,6 +44,12 @@ gulp.task('html:dev', function () {
 			.pipe(changed('./build/', { hasChanged: changed.compareContents }))
 			.pipe(plumber(plumberNotify('HTML')))
 			.pipe(fileInclude(fileIncludeSetting))
+			.pipe(
+				replace(
+					/(?<=src=|href=|srcset=)(['"])(\.(\.)?\/)*(img|images|fonts|css|scss|sass|js|files|audio|video)(\/[^\/'"]+(\/))?([^'"]*)\1/gi,
+					'$1./$4$5$7$1'
+				)
+			)
 			.pipe(gulp.dest('./build/'))
 	);
 });
@@ -57,6 +63,12 @@ gulp.task('sass:dev', function () {
 			.pipe(sourceMaps.init())
 			.pipe(sassGlob())
 			.pipe(sass())
+			.pipe(
+				replace(
+					/(['"]?)(\.\.\/)+(img|images|fonts|css|scss|sass|js|files|audio|video)(\/[^\/'"]+(\/))?([^'"]*)\1/gi,
+					'$1$2$3$4$6$1'
+				)
+			)
 			.pipe(sourceMaps.write())
 			.pipe(gulp.dest('./build/css/'))
 	);

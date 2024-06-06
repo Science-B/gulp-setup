@@ -60,6 +60,12 @@ gulp.task('html:docs', function () {
 		.pipe(fileInclude(fileIncludeSetting))
 		.pipe(webpHTML())
 		.pipe(htmlclean())
+		.pipe(
+			replace(
+				/(?<=src=|href=|srcset=)(['"])(\.(\.)?\/)*(img|images|fonts|css|scss|sass|js|files|audio|video)(\/[^\/'"]+(\/))?([^'"]*)\1/gi,
+				'$1./$4$5$7$1'
+			)
+		)
 		.pipe(gulp.dest('./docs/'));
 });
 
@@ -74,6 +80,12 @@ gulp.task('sass:docs', function () {
 		.pipe(webpCss())
 		.pipe(groupMedia())
 		.pipe(sass())
+		.pipe(
+			replace(
+				/(['"]?)(\.\.\/)+(img|images|fonts|css|scss|sass|js|files|audio|video)(\/[^\/'"]+(\/))?([^'"]*)\1/gi,
+				'$1$2$3$4$6$1'
+			)
+		)
 		.pipe(csso())
 		.pipe(sourceMaps.write())
 		.pipe(gulp.dest('./docs/css/'));
