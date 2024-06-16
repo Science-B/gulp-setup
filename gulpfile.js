@@ -12,7 +12,6 @@ gulp.task(
       "html:dev",
       "sass:dev",
       "images:dev",
-      "fonts:dev",
       "files:dev",
       "js:dev"
     ),
@@ -28,7 +27,6 @@ gulp.task(
       "html:docs",
       "sass:docs",
       "images:docs",
-      "fonts:docs",
       "files:docs",
       "js:docs"
     ),
